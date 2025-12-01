@@ -123,8 +123,8 @@ header a {
 	gap: 75px;
 }
 .door {
-	width: 80vw;
-    max-width: 800px; 
+	width: 30vw;
+    max-width: 300px; 
 	display: block;
 }
 .door1 {
@@ -145,17 +145,17 @@ header a {
 }
 .door5 {
 	width: 18vw;
-	max-width: 230px;
+	max-width: 130px;
 	display: block; 
 }
 .door6 {
 	width: 35vw;
-	max-width: 500px;
+	max-width: 400px;
 	display: block;
 }
 .door7 {
 	width: 30vw;
-	max-width: 450px;
+	max-width: 350px;
 	display: block;
 }
 .door8 {
