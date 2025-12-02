@@ -35,6 +35,7 @@ header a {
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-end;
+	box-sizing: border-box;
 }
 .copyright-text {
 	color: gray;
@@ -208,3 +209,4 @@ header a {
 .door4B {
 	background-color: #d6a196;
 }
+
