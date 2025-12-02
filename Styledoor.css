@@ -124,8 +124,8 @@ header a {
 	gap: 75px;
 }
 .door {
-	width: 65vw;
-    max-width: 650px; 
+	width: 60vw;
+    max-width: 300px; 
 	display: block;
 }
 .door1 {
@@ -209,4 +209,5 @@ header a {
 .door4B {
 	background-color: #d6a196;
 }
+
 
