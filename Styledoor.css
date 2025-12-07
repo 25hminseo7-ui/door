@@ -146,8 +146,8 @@ header a {
 	display: block;
 }
 .door5 {
-	width: 13vw;
-	max-width: 90px;
+	width: 20vw;
+	max-width: 130px;
 	display: block; 
 }
 .door6 {
@@ -210,4 +210,5 @@ header a {
 .door4B {
 	background-color: #d6a196;
 }
+
 
