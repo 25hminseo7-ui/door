@@ -1,0 +1,293 @@
+* {
+	word-break: keep-all;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	/*font-weight: bold;*/
+}
+footer {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: transparent;
+	z-index: 100;
+	text-align: center;
+	padding: 40px 0;
+}
+header {
+	top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    /*font-weight: bold;*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 34px;
+    z-index: 1000;
+}
+header a {
+    text-decoration: none; 
+    color: black;
+}
+
+.door-section {
+	min-height: 100vh;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+.copyright-text {
+	color: gray;
+	font-size: 1vw; 
+	margin: 0;
+}
+
+.t-section {
+	padding-top: 100px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 215px;
+}
+.t-section2 {
+	padding-top: 135px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+.t-div {
+	text-align: center
+}
+.text {
+	line-height: 1.9;
+	/*font-weight: bold;*/
+}
+
+.sound-section {
+    min-height: calc(100vh - 100px); 
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -45px;
+}
+.door-audio {
+    width: 50vw;
+    max-width: 400px;
+    margin-top: 0;
+}
+
+#NoEntry-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 50px 0;
+    font-size: 1.4vw;
+    /*font-weight: bold;*/
+    z-index: 9999;
+
+    visibility: hidden;
+    opacity: 0;
+}
+.close-NoEntry {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 2vw;
+    line-height: 1;
+    padding: 0 10px;
+}
+#NoEntry-bar:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.choice1 {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+.choice2 {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+.choice3 {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+.choice4 {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+.choice5 {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+.door1234 {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 93px;
+}
+.door567 {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 5vw;
+}
+.door891011 {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 75px;
+}
+.door121314 {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 80px;
+}
+.door15161718 {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 75px;
+}
+.door {
+	width: 17.5vw;
+    max-width: 285px;
+	display: block;
+	margin-bottom: 0;
+}
+.door1 {
+	width: 182px;
+	display: block;
+}
+.door2 {
+	width: 160px;
+	display: block;
+}
+.door3 {
+	width: 140px;
+	display: block;
+}
+.door4 {
+	width: 142px;
+	display: block;
+}
+.door5 {
+	width: 25vw;
+	max-width: 150px;
+	display: block; 
+}
+.door6 {
+	width: 35vw;
+	max-width: 330px;
+	display: block;
+}
+.door7 {
+	width: 25vw;
+	max-width: 300px;
+	display: block;
+}
+.door8 {
+	width: 129px;
+	display: block;
+}
+.door9 {
+	width: 333px;
+	display: block;
+}
+.door10 {
+	width: 145px;
+	display: block;
+}
+.door11 {
+	width: 180px;
+	display: block;
+}
+.door12 {
+	width: 40vw;
+	max-width: 350px;
+	display: block;
+}
+.door13 {
+	width: 145px;
+	display: block;
+}
+.door14 {
+	width: 165px;
+	display: block;
+}
+.door15 {
+	width: 160px;
+	display: block;
+}
+.door16 {
+	width: 40vw;
+	max-width: 350px;
+	display: block;
+}
+.door17 {
+	width: 170px;
+	display: block;
+}
+.door18 {
+	width: 135px;
+	display: block;
+}
+.door2B {
+	background-color: #8c7f7d;
+}
+.door4B {
+	background-color: #d6a196;
+}
+.door6B {
+	background-color: #B7BEC8;
+}
+.door7B {
+	background-color: #938A83;
+}
+.door9B {
+	background-color: #5F6575;
+}
+.door10B {
+	background-color: #677991;
+}
+.door12B {
+	background-color: #92A07F;
+}
+.door14B {
+	background-color: #92877E;
+}
+.door16B {
+	background-color: #B8BCB1;
+}
+.door17B {
+	background-color: #B2A89D;
+}
