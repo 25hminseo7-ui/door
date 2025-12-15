@@ -357,7 +357,7 @@ header a {
     /* 3. Door Section 및 Choice Sections - 하단 완벽 부착 */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5 {
         margin-top: 60px !important; 
-        min-height: calc(100vh - 60px) !important; /* footer 공간 제외 */
+        min-height: calc(100vh - 60px) !important;
         height: auto !important; 
         
         display: flex !important;
@@ -366,7 +366,7 @@ header a {
         justify-content: flex-end !important; 
         
         padding-top: 20px !important;
-        padding-bottom: 0 !important; /* 문을 바닥에 완벽히 붙임 */
+        padding-bottom: 0 !important;
     }
     
     /* 4. 문 선택 페이지 그룹핑 컨테이너 - 가로 스크롤 & Gap 50px */
@@ -386,20 +386,22 @@ header a {
         gap: 50px !important; 
     }
     
-    /* 5. 문 이미지 크기 조정 (이전의 작동하던 코드로 복구 및 하단 마진 제거) */
+    /* 5. 문 이미지 크기 조정 */
     
-    /* 모든 문 이미지에 하단 마진 제거를 강제 적용하여 바닥에 완벽히 붙임 */
+    /* 모든 문 이미지 하단 마진 제거 및 축소 방지 적용 */
     .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
-        margin-bottom: 0 !important; /* 하단 부착 유지 */
+        margin-bottom: 0 !important; 
         flex-shrink: 0; 
     }
 
-    /* 크기 설정 (이전 작동 코드 복구) */
+    /* [핵심 수정 1]: 홈페이지 문 크기 (55vh -> 48vh로 축소) */
     .door {
-        width: 55vh !important; 
+        width: 48vh !important; 
         max-width: 90% !important; 
         height: auto !important;
     }
+    
+    /* 나머지 문 크기 (유지) */
     .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door13, .door14, .door15, .door17, .door18 {
         width: 25vh !important; 
         max-width: 25vh !important; 
@@ -429,20 +431,19 @@ header a {
         width: 90% !important;
     }
 
-    /* 7. 공간 레이아웃 - [핵심 수정: 중앙 정렬 추가] */
+    /* 7. 공간 레이아웃 - [핵심 수정: 간격 20px로 축소 및 텍스트 양끝맞춤] */
     .space-layout {
         flex-direction: column !important;
         height: auto !important; 
         padding: 20px !important;
         margin-top: 60px !important; 
-        gap: 40px !important;
+        /* [핵심 수정 2]: gap을 20px로 축소 */
+        gap: 20px !important; 
         
-        /* FIX: 콘텐츠를 수직/수평 중앙에 배치 */
         display: flex !important; 
         align-items: center !important; 
         justify-content: center !important; 
         
-        /* 중앙 정렬을 위해 화면 높이를 채우도록 설정 */
         min-height: calc(100vh - 60px) !important; 
     }
     .space-photo { 
@@ -451,8 +452,8 @@ header a {
     }
     .space-memo { 
         width: 90% !important;
-        /* 메모 내용이 중앙에 오도록 텍스트 정렬 */
-        text-align: center !important; 
+        /* [핵심 수정 3]: 텍스트 양끝맞춤 (Justify) 적용 */
+        text-align: justify !important; 
     }
     
     /* 8. 기타 요소 (폰트, T-섹션 등) */
@@ -470,7 +471,7 @@ header a {
         width: 90% !important; 
         padding: 20px !important;
     }
-    .text, .text2, .space-memo { 
+    .text, .text2 { 
         font-size: 16px !important; 
         line-height: 1.8 !important; 
         width: 100% !important; 
@@ -478,3 +479,7 @@ header a {
     .poemtitle { font-size: 24px !important; margin-bottom: 30px !important; }
     .authorname { font-size: 18px !important; }
 }
+    .poemtitle { font-size: 24px !important; margin-bottom: 30px !important; }
+    .authorname { font-size: 18px !important; }
+}
+
