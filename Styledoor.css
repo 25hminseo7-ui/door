@@ -56,18 +56,22 @@ header a {
 .text {
 	line-height: 2.2;
 	text-align: left;
+	font-size: 1.3vw;
 }
 .text2 {
 	line-height: 2.2;
 	text-align: left;
 	margin-bottom: 28px;
+	font-size: 1.3vw;
 }
 .poemtitle {
 	margin-bottom: 60px;
+	font-size: 1.3vw;
 }
 .authorname {
 	text-align: right;
 	margin-bottom: 15px;
+	font-size: 1.3vw;
 }
 
 .space-layout {
@@ -323,4 +327,5 @@ header a {
 }
 .door17B {
 	background-color: #B2A89D;
+
 }
