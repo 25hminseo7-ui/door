@@ -330,91 +330,139 @@ header a {
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
- 
+    
+    /* 1. Body 및 기본 설정 (폰트 사이즈 포함) */
     body {
-        position: static !important; 
-        overflow: auto !important;
-        font-size: 16px !important;
+        position: static; 
+        overflow: auto;
+        font-size: 16px;
     }
+    
+    /* 2. Footer (Copyright) - 상단 고정 */
     footer {
-        position: fixed !important; 
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        background-color: white !important;
-        padding: 20px 0 !important;
-        text-align: center !important;
-        z-index: 10;
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white; 
+        padding: 20px 0;
+        text-align: center;
+        z-index: 10; 
     }
     .copyright-text {
-        font-size: 12px !important; 
-        margin: 0 !important;
+        font-size: 12px; 
+        margin: 0;
     }
+
+    /* 3. Door Section 및 Choice Sections */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5 {
-        margin-top: 60px !important; 
-        min-height: calc(100vh - 60px) !important;
-        height: auto !important; 
+        /* Footer 높이만큼 아래로 밀고, 화면 높이에서 footer 높이를 뺀 만큼 채움 */
+        margin-top: 60px; 
+        min-height: calc(100vh - 60px);
+        height: auto; 
+        
         display: flex;
         flex-direction: column;
         align-items: center;
+        /* 문이 바닥에 완벽히 붙도록 설정 */
         justify-content: flex-end; 
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
+        
+        padding-top: 20px;
+        padding-bottom: 0; 
     }
+    
+    /* 4. 문 선택 페이지 그룹핑 컨테이너 - 가로 스크롤 구현 (간격 50px로 조정) */
+    /* 기존의 door1234, door567 등의 클래스를 사용합니다. */
     .door1234, .door567, .door891011, .door121314, .door15161718 {
-        overflow-x: auto !important;
-        overflow-y: hidden !important; 
-        width: 100% !important;
-        flex-wrap: nowrap !important;
-        height: 80vh !important;
-        max-height: 80vh !important;
-        align-items: flex-end !important;
-        justify-content: flex-start !important; 
-        padding: 0 15px !important;
-        gap: 20px !important; 
+        overflow-x: auto;
+        overflow-y: hidden; 
+        width: 100%;
+        flex-wrap: nowrap;
+        
+        height: 80vh;
+        max-height: 80vh;
+        
+        align-items: flex-end;
+        justify-content: flex-start; 
+        
+        padding: 0 15px;
+        gap: 50px; 
     }
-    .door {
-        width: 55vh !important; 
-        max-width: 90% !important; 
-        height: auto !important;
-        margin-bottom: 0 !important;
-    }
-    .door, .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door13, .door14, .door15, .door17, .door18 {
-        width: 25vh !important; 
-        max-width: 25vh !important; 
+    
+    /* 5. 문 이미지 크기 조정 및 하단 마진 제거 */
+    
+    /* 모든 문 이미지에 하단 마진 제거 및 축소 방지 적용 */
+    .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
+        margin-bottom: 0;
         flex-shrink: 0; 
     }
+    
+    /* 크기 설정 (vh를 사용해 세로 화면에 안정화) */
+    .door {
+        width: 55vh; 
+        max-width: 90%; 
+        height: auto;
+    }
+    .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door13, .door14, .door15, .door17, .door18 {
+        width: 25vh; 
+        max-width: 25vh; 
+    }
     .door6 { 
-        width: 40vh !important; 
-        max-width: 40vh !important; 
-        flex-shrink: 0;
+        width: 40vh; 
+        max-width: 40vh; 
     } 
     .door9, .door12, .door16 {
-        width: 35vh !important; 
-        max-width: 35vh !important; 
-        flex-shrink: 0;
+        width: 35vh; 
+        max-width: 35vh; 
     }
+    
+    /* 6. 오디오 섹션 - 화면 중앙 정렬 */
+    .sound-section {
+        margin-top: 60px;
+        height: calc(100vh - 60px); 
+        
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+    }
+    .door-audio {
+        max-width: 90%;
+        width: 90%;
+    }
+    
+    /* 7. 기타 요소 (폰트, T-섹션 등) */
     header {
-        position: absolute !important;
-        padding: 20px !important;
+        position: absolute;
+        padding: 20px;
     }
-    header p, header a { font-size: 16px !important; }
-    .text, .text2, .space-memo { font-size: 16px !important; line-height: 1.8 !important; }
-    .poemtitle { font-size: 24px !important; margin-bottom: 30px !important; }
-    .authorname { font-size: 18px !important; }
+    header p, header a { font-size: 16px; }
+    
+    .t-section {
+        margin-top: 60px; 
+        padding-top: 20px;
+    }
+    .t-div {
+        width: 90%; 
+        padding: 20px;
+    }
+    .text, .text2, .space-memo { 
+        font-size: 16px; 
+        line-height: 1.8; 
+        width: 100%; 
+    }
+    .poemtitle { font-size: 24px; margin-bottom: 30px; }
+    .authorname { font-size: 18px; }
     .space-layout {
-        flex-direction: column !important;
-        height: auto !important; 
-        padding: 20px !important;
-        margin-top: 60px !important; 
-        gap: 40px !important;
+        flex-direction: column;
+        height: auto; 
+        padding: 20px;
+        margin-top: 60px; 
+        gap: 40px;
     }
-    .space-photo { max-width: 90% !important; width: 90% !important; }
-    .space-memo { width: 90% !important; }
-    .sound-section { margin-top: 60px !important; height: auto !important; padding-bottom: 60px !important; }
-    .door-audio { max-width: 90% !important; width: 90% !important; }
+    .space-photo { max-width: 90%; width: 90%; }
+    .space-memo { width: 90%; }
 }
-        width: 90% !important;
     }
 }
+
 
