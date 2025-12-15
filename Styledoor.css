@@ -354,7 +354,7 @@ header a {
         margin: 0;
     }
 
-    /* 3. Door Section (홈페이지 및 일반 페이지 섹션) - 중앙 정렬 및 Footer 공간 확보 */
+    /* 3. Door Section (홈페이지 및 일반 페이지 섹션) */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5 {
         margin-top: 60px; 
         min-height: calc(100vh - 60px);
@@ -384,16 +384,14 @@ header a {
         gap: 50px; 
     }
     
-    /* 5. 문 이미지 크기 조정 (모두 !important 제거) */
+    /* 5. 문 이미지 크기 조정 */
     
-    /* 홈페이지 메인 문 이미지 (크기 및 중앙 정렬) */
+    /* [핵심 수정 1]: 홈페이지 메인 문 이미지 크기 축소 (48vh -> 40vh) */
     .door {
-        width: 48vh; /* 크기 고정 */
+        width: 40vh; /* 크기 축소 */
         max-width: 90%; 
         height: auto;
         margin-bottom: 0;
-        
-        /* 중앙 정렬을 위한 block 속성 및 auto margin */
         margin-left: auto; 
         margin-right: auto;
         display: block; 
@@ -430,7 +428,11 @@ header a {
         gap: 40px;
     }
     .space-photo { max-width: 90%; width: 90%; }
-    .space-memo { width: 90%; }
+    /* [핵심 수정 2]: 공간 메모 텍스트 양끝맞춤 */
+    .space-memo { 
+        width: 90%; 
+        text-align: justify; 
+    }
     
     /* 8. 기타 요소 (폰트, T-섹션, 경고바) */
     header {
@@ -487,3 +489,7 @@ header a {
         padding: 20px;
     }
 }
+        padding: 20px;
+    }
+}
+
