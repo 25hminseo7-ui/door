@@ -552,7 +552,7 @@ header a {
     header p, header a { font-size: 16px; }
     
     /* 텍스트 폰트 통일 */
-    .text, .text2, .space-memo { 
+    .text, .text2, { 
         font-size: 16px; 
         line-height: 1.8; 
         width: 100%; 
