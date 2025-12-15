@@ -399,7 +399,6 @@ header a {
         width: 55vh !important; 
         max-width: 90% !important; 
         height: auto !important;
-        margin-bottom: 0 !important;
     }
     .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door13, .door14, .door15, .door17, .door18 {
         width: 25vh !important; 
@@ -443,13 +442,15 @@ header a {
         align-items: center !important; 
         justify-content: center !important; 
         
+        /* 중앙 정렬을 위해 화면 높이를 채우도록 설정 */
+        min-height: calc(100vh - 60px) !important; 
     }
     .space-photo { 
-        max-width: 80% !important; 
-        width: 80% !important;
+        max-width: 90% !important; 
+        width: 90% !important;
     }
     .space-memo { 
-        width: 80% !important;
+        width: 90% !important;
         /* 메모 내용이 중앙에 오도록 텍스트 정렬 */
         text-align: center !important; 
     }
