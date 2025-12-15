@@ -328,40 +328,19 @@ header a {
 .door17B {
 	background-color: #B2A89D;
 }
-
 @media (max-width: 600px) and (orientation: portrait) {
-    
-    /* ======================================================= */
-    /* 1. Body 전체 회전 및 위치 조정 (자동 가로 화면 구현) */
-    /* ======================================================= */
-    
     body {
-        /* 화면 고정 및 스크롤 방지 */
         position: fixed; 
         top: 0;
         left: 0; 
-        
-        /* [핵심]: 콘텐츠 영역을 회전된 뷰포트 크기에 맞게 정의 */
-        width: 100vh;  /* 가로 길이 = 원래 화면 높이 */
-        height: 100vw; /* 세로 길이 = 원래 화면 너비 */
-        
+        width: 100vh;
+        height: 100vw;
         transform-origin: 0 0; 
-        
-        /* [핵심 공식]: 90도 회전 후, 전체 콘텐츠를 화면 높이만큼 왼쪽으로 이동 */
         transform: rotate(90deg) translate(0, -100%); 
-        
-        /* 스크롤바 원천 차단 */
         overflow: hidden !important; 
     }
-
-    /* ======================================================= */
-    /* 2. 섹션 크기 및 정렬 (문 바닥 정렬 및 잘림 문제 해결) */
-    /* ======================================================= */
-    
-    /* 모든 메인 섹션은 회전된 body 크기를 꽉 채웁니다. */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5, 
     .t-section, .sound-section, .space-layout {
-        /* [핵심]: body의 100%를 사용 (회전된 100vh x 100vw 영역을 꽉 채움) */
         min-height: 100% !important;
         height: 100% !important; 
         width: 100% !important; 
@@ -371,45 +350,29 @@ header a {
         
         padding-top: 0 !important;
     }
-    
-    /* ======================================================= */
-    /* 3. 문 이미지 크기 조정 (잘림 및 확대 문제 해결) */
-    /* ======================================================= */
-    
-    /* 문 이미지 그룹 컨테이너 (choice* 페이지) */
     .door1234, .door5678, .door9101112, .door13141516, .door1718 {
-        /* [핵심]: 컨테이너 높이를 뷰포트보다 작게 제한하여 스크롤 방지 및 문 하단 정렬 보장 */
-        height: 85% !important; /* 섹션 높이의 85%로 제한 */
+        height: 80% !important; 
+        max-height: 80% !important; 
         width: 90% !important; 
         
         justify-content: center !important; 
-        align-items: flex-end !important; /* 문을 바닥에 붙이기 */
+        align-items: flex-end !important;
+        gap: 20px !important;
     }
 
-    /* 개별 문 이미지 크기를 '원래 데스크톱 비율'의 60%로 줄여서 확대 문제를 완화 */
-    /* 100%가 아닌 60%를 사용함으로써 강제 축소 효과를 냅니다. */
-    
-    /* .door 원본: width: 17.5vw; */
     .door, .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
-        width: 10.5% !important; /* 17.5% * 0.6 = 10.5% */
-        max-width: 10.5% !important; 
+        width: 10vh !important; 
+        max-width: 10vh !important; 
     }
     
-    /* .door6 원본: width: 35vw; */
     .door6 { 
-        width: 21% !important; /* 35% * 0.6 = 21% */
-        max-width: 21% !important; 
+        width: 20vh !important; 
+        max-width: 20vh !important; 
     } 
-    
-    /* .door9 원본: width: 333px; (대략 25vw) */
     .door9 { 
-        width: 15% !important; /* 25% * 0.6 = 15% */
-        max-width: 15% !important; 
-    } 
-    
-    /* ======================================================= */
-    /* 4. 헤더, 텍스트, 공간 레이아웃 조정 */
-    /* ======================================================= */
+        width: 18vh !important; 
+        max-width: 18vh !important; 
+    }
     
     header {
         position: fixed !important;
@@ -418,7 +381,6 @@ header a {
         justify-content: space-between !important;
     }
     
-    /* 텍스트 컨테이너 */
     .t-div {
         width: 85% !important; 
         height: 85% !important; 
@@ -428,19 +390,15 @@ header a {
         text-align: center !important; 
     }
     
-    /* 공간/메모 컨테이너 */
     .space-photo, .space-memo {
         width: 45% !important; 
         height: 85% !important; 
     }
     
-    /* 오디오 바 */
     .door-audio {
         width: 80% !important; 
     }
     
-    /* 5. 폰트 크기 조정 (유지) */
-    /* 폰트 크기는 % 대신 고정된 px 값이나 rem/em을 사용해 축소의 영향을 덜 받게 합니다. */
     header p, header a { font-size: 16px !important; }
     .text, .memo-text, .text2 { font-size: 18px !important; line-height: 1.5 !important; }
     .poemtitle, .title-text { font-size: 26px !important; line-height: 1.3 !important; }
@@ -448,3 +406,7 @@ header a {
     .NoEntry-text { font-size: 16px !important; }
     .copyright-text { font-size: 14px !important; }
 }
+    .NoEntry-text { font-size: 16px !important; }
+    .copyright-text { font-size: 14px !important; }
+}
+
