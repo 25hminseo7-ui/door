@@ -341,80 +341,56 @@ html, body {
     /* ======================================================= */
     
     body {
-        /* position:fixed로 스크롤을 방지합니다. */
         position: fixed; 
         top: 0;
         left: 0; 
         
-        /* [핵심 수정]: 세로 뷰포트의 너비/높이를 기준으로 크기 재설정 */
-        width: 100vh;  /* 가로 길이 = 원래 화면 높이 */
-        height: 100vw; /* 세로 길이 = 원래 화면 너비 */
+        /* [핵심 수정]: 뷰포트의 실제 크기를 사용하며, 오버플로우를 감춥니다. */
+        width: 100vh;  
+        height: 100vw; 
         
-        /* 회전 중심을 '좌측 상단'으로 설정 */
         transform-origin: 0 0; 
         
-        /* [최종 공식]: 90도 회전 후, 콘텐츠를 화면 높이만큼 왼쪽으로 이동(translateY)하여 
-                     화면 안에 딱 맞게 위치시킵니다. */
+        /* 회전 후, 콘텐츠를 화면 높이만큼 왼쪽으로 이동 */
         transform: rotate(90deg) translate(0, -100%); 
         
-        /* 스크롤바 방지 */
+        /* 스크롤바 원천 차단 */
         overflow: hidden !important; 
     }
 
     /* ======================================================= */
-    /* 2. 섹션별 레이아웃 강제 정렬 및 크기 조정 (문 바닥 정렬, 레이아웃 불균형 해결) */
+    /* 2. 섹션별 레이아웃 강제 정렬 및 크기 조정 */
     /* ======================================================= */
     
-    /* 모든 메인 섹션은 회전된 뷰포트의 높이를 꽉 채우도록 재정의 */
+    /* 모든 메인 섹션은 회전된 뷰포트의 높이를 꽉 채우도록 강제 */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5, 
     .t-section, .sound-section, .space-layout {
-        /* [핵심]: 회전된 뷰포트 높이(원래 너비)를 꽉 채우기 */
+        /* [핵심]: 뷰포트 높이(원래 너비)를 꽉 채우기 */
         min-height: 100vw !important;
         height: 100vw !important; 
         
-        /* 회전된 뷰포트 너비(원래 높이)를 꽉 채우기 */
+        /* 뷰포트 너비(원래 높이)를 꽉 채우기 */
         width: 100vh !important; 
         
-        /* 콘텐츠 중앙 정렬 강제 */
+        /* Flexbox를 사용하여 콘텐츠 중앙 정렬 강제 */
         align-items: center !important;
         justify-content: center !important;
         
-        /* 상단 패딩 제거 */
         padding-top: 0 !important;
     }
     
-    /* ======================================================= */
-    /* 3. 문 이미지 크기 조정 (유지) */
-    /* ======================================================= */
-    .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
-        width: 15vh !important; 
-        max-width: none !important;
-    }
-    .door6 { width: 30vh !important; } 
-    .door7 { width: 25vh !important; } 
-    .door9 { width: 28vh !important; }
-    
-    /* ======================================================= */
-    /* 4. 헤더 및 내부 콘텐츠 조정 (잘림 문제 방지) */
-    /* ======================================================= */
-    
-    header {
-        position: fixed !important;
-        width: 100vh !important; 
-        padding: 20px 30px !important; 
-        justify-content: space-between !important;
-    }
-
-    /* 텍스트 섹션의 내부 DIV */
+    /* 텍스트 콘텐츠 컨테이너 조정 (헤더 영역을 제외하고 중앙에 배치) */
     .t-div {
+        /* [핵심 수정]: 헤더(약 10vh)를 제외한 높이만 사용. */
         width: 85vh !important; 
         height: 90vw !important; 
+        max-height: 90vw !important;
         overflow-y: auto !important; 
         padding: 20px !important;
-        text-align: center !important; 
+        text-align: center !important;
     }
 
-    /* 공간/메모 페이지 내부 */
+    /* 공간/메모 페이지 내부 조정 */
     .space-layout {
         justify-content: space-evenly !important; 
     }
@@ -425,9 +401,43 @@ html, body {
     .space-memo {
         width: 45vh !important; 
         height: 90vw !important; 
+        max-height: 90vw !important; /* 높이 제한 */
+    }
+
+    /* ======================================================= */
+    /* 3. 문 이미지 크기 조정 (너무 커서 잘리는 문제 해결) */
+    /* ======================================================= */
+    
+    /* 문 선택 페이지의 컨테이너 */
+    .door1234, .door5678, .door9101112, .door13141516, .door1718 {
+        /* [핵심 수정]: 이미지가 너무 커서 잘리는 문제를 해결하기 위해 
+                     Flexbox 설정을 재조정하고 크기를 제한합니다. */
+        max-height: 95vw !important; /* 뷰포트 높이에 맞게 최대 높이 제한 */
+        height: 95vw !important;
+        width: 95vh !important; /* 뷰포트 너비에 맞게 최대 너비 제한 */
+        /* Flexbox 정렬은 이미 section에 정의되어 있으므로 여기서는 크기만 조정 */
     }
     
-    /* 오디오 재생 바 */
+    /* 개별 문 이미지 크기 (vh 기반 크기 유지 및 max-width 제거) */
+    .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
+        width: 15vh !important; 
+        /* max-width를 제거하거나, 아주 작은 값으로 강제하여 뷰포트 크기에 종속되게 합니다. */
+        max-width: 15vh !important; 
+    }
+    .door6 { width: 30vh !important; max-width: 30vh !important; } 
+    .door7 { width: 25vh !important; max-width: 25vh !important; } 
+    .door9 { width: 28vh !important; max-width: 28vh !important; }
+    
+    /* ======================================================= */
+    /* 4. 헤더 및 오디오 조정 (유지) */
+    /* ======================================================= */
+    
+    header {
+        position: fixed !important;
+        width: 100vh !important; 
+        padding: 20px 30px !important; 
+        justify-content: space-between !important;
+    }
     .door-audio {
         width: 80vh !important; 
     }
