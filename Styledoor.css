@@ -538,17 +538,24 @@ header a {
     header p, header a {
     	font-size: 16px;
     }
-    .text, .text2, { 
+    .text { 
         font-size: 16px; 
         line-height: 1.8; 
         width: 100%; 
     }
-    .poemtitle, .authorname { 
+    .text2, { 
+        font-size: 16px; 
+        line-height: 1.8; 
+        width: 100%; 
+    }
+    .poemtitle,{
         font-size: 16px; 
         margin-bottom: 30px; 
     }
-    .authorname {
-    	margin-top: -20px;
+    .authorname { 
+        font-size: 16px; 
+        margin-bottom: 30px;
+        margin-top: -20px;
     }
     #NoEntry-bar {
         height: 40px; 
@@ -583,3 +590,17 @@ header a {
         padding: 20px;
     }
 }
+        padding-top: 20px;
+        min-height: calc(100vh - 60px); 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .t-div {
+        width: 90%; 
+        max-height: 90%; 
+        overflow-y: auto; 
+        padding: 20px;
+    }
+}
+
