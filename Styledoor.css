@@ -388,7 +388,7 @@ header a {
     
     /* [핵심 수정 1]: 홈페이지 메인 문 이미지 크기 축소 (48vh -> 40vh) */
     .door {
-        width: 40vh; /* 크기 축소 */
+        width: 35vh; /* 크기 축소 */
         max-width: 90%; 
         height: auto;
         margin-bottom: 0;
@@ -400,13 +400,121 @@ header a {
     /* 나머지 문 이미지들 */
     .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
         margin-bottom: 0; 
+        flex-shrink: 0;
+    }
+
+    .door1 {
+    	width: 25vh;
+    	max-width: 25vh;
+    	margin-bottom: 0; 
         flex-shrink: 0; 
     }
-    .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door13, .door14, .door15, .door17, .door18 {
-        width: 25vh; max-width: 25vh; 
+    .door2 {
+    	width: 23vh;
+    	max-width: 23vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door3 {
+    	width: 23vh;
+    	max-width: 23vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door4 {
+    	width: 19vh;
+    	max-width: 19vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
     }
-    .door6 { width: 40vh; max-width: 40vh; } 
-    .door9, .door12, .door16 { width: 35vh; max-width: 35vh; }
+
+    .door5 {
+    	width: 25vh;
+    	max-width: 25vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door6 {
+    	width: 45vh;
+    	max-width: 45vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door7 {
+    	width: 30vh;
+    	max-width: 30vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    }
+
+    .door8 {
+    	width: 17vh;
+    	max-width: 17vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door9 {
+    	width: 43vh;
+    	max-width: 43vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door10 {
+    	width: 25vh;
+    	max-width: 25vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door11 {
+    	width: 36vh;
+    	max-width: 36vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    }
+
+    .door12 {
+    	width: 45vh;
+    	max-width: 45vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door13 {
+    	width: 24vh;
+    	max-width: 24vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door14 {
+    	width: 28vh;
+    	max-width: 28vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    }
+
+    .door15 {
+    	width: 24vh;
+    	max-width: 24vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door16 {
+    	width: 42vh;
+    	max-width: 42vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door17 {
+    	width: 25vh;
+    	max-width: 25vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
+    .door18 {
+    	width: 19vh;
+    	max-width: 19vh;
+    	margin-bottom: 0; 
+        flex-shrink: 0; 
+    } 
 
     /* 6. 오디오 섹션 - 중앙 정렬 */
     .sound-section { 
@@ -489,7 +597,3 @@ header a {
         padding: 20px;
     }
 }
-        padding: 20px;
-    }
-}
-
