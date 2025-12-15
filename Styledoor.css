@@ -331,7 +331,7 @@ header a {
 
 @media (max-width: 600px) and (orientation: portrait) {
     
-    /* 1. Body 및 기본 설정 */
+    /* 1. Body 및 기본 설정 (유지) */
     body {
         position: static !important; 
         overflow: auto !important;
@@ -347,14 +347,14 @@ header a {
         background-color: white !important; 
         padding: 20px 0 !important;
         text-align: center !important;
-        z-index: 10 !important; 
+        z-index: 10 !important;
     }
     .copyright-text {
         font-size: 12px !important; 
         margin: 0 !important;
     }
 
-    /* 3. Door Section 및 Choice Sections - 하단 완벽 부착 (유지) */
+    /* 3. Door Section (홈페이지 및 일반 페이지 섹션) - Margin Top 추가 (유지) */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5 {
         margin-top: 60px !important; 
         min-height: calc(100vh - 60px) !important;
@@ -369,7 +369,7 @@ header a {
         padding-bottom: 20px !important;
     }
     
-    /* 4. 문 선택 페이지 그룹핑 컨테이너 - 가로 스크롤 & Gap 50px (유지) */
+    /* 4. 문 선택 페이지 그룹핑 컨테이너 - 가로 스크롤 구현 (유지) */
     .door1234, .door567, .door891011, .door121314, .door15161718 {
         overflow-x: auto !important;
         overflow-y: hidden !important; 
@@ -384,7 +384,7 @@ header a {
     }
     
     /* 5. 문 이미지 크기 조정 (유지) */
-    .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
+    .door, .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door13, .door14, .door15, .door17, .door18 {
         margin-bottom: 0 !important; 
         flex-shrink: 0 !important; 
     }
@@ -406,20 +406,13 @@ header a {
     }
     .door-audio { max-width: 90% !important; width: 90% !important; }
     
-    /* 7. 공간 레이아웃 (사진/메모) - 상단 여백 추가 */
+    /* 7. 공간 레이아웃 (사진/메모) - (유지) */
     .space-layout {
         flex-direction: column !important;
         height: auto !important; 
         padding: 20px !important;
-        /* [핵심 수정 2]: margin-top을 80px로 증가시켜 상단 여백 추가 (header 아래) */
-        margin-top: 80px !important; 
+        margin-top: 60px !important; /* 이전 코드로 복귀 */
         gap: 40px !important;
-        
-        display: flex !important; 
-        align-items: center !important; 
-        justify-content: center !important; 
-        
-        min-height: calc(100vh - 60px) !important; 
     }
     .space-photo { max-width: 90% !important; width: 90% !important; }
     .space-memo { width: 90% !important; }
@@ -430,12 +423,10 @@ header a {
         padding: 20px !important;
     }
     
-    /* [핵심 수정 3]: 경고 메시지 폰트 크기 조정 */
-    header p, header a { 
-        font-size: 16px !important; /* '돌아가기' 폰트 크기 (16px) */
-    }
+    /* header p, header a는 '돌아가기' 폰트 크기 (16px) */
+    header p, header a { font-size: 16px !important; }
     
-    /* [핵심 수정 4]: 시 페이지 (제목, 글쓴이, 내용) 폰트 사이즈 통일 (16px) */
+    /* [핵심 수정 1]: 시 페이지 (제목, 글쓴이, 내용) 폰트 사이즈 통일 (16px) */
     .text, .text2, .space-memo { 
         font-size: 16px !important; 
         line-height: 1.8 !important; 
@@ -447,16 +438,30 @@ header a {
     }
     .authorname { margin-top: -20px !important; } /* 글쓴이와 제목 간격 조정 */
     
-    /* [핵심 수정 5]: 경고 메시지 텍스트 사이즈 조정 */
+    /* [핵심 수정 2]: 경고 메시지 폰트 크기 조정 및 #NoEntry-bar 영역 유지 */
     #NoEntry-bar {
-        height: 60px !important; /* 폰트 사이즈 키우면서 바 높이 증가 */
+        /* 높이: 경고 메시지 텍스트를 담을 수 있도록 최소한으로 조정 (예: 40px) */
+        height: 40px !important; 
         top: 60px !important; /* footer 아래에 위치 */
+        
+        /* 텍스트 중앙 정렬을 위해 Flexbox 사용 */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 10px !important;
     }
     .NoEntry-text {
         font-size: 16px !important; /* '돌아가기' 폰트 사이즈 (16px)로 맞춤 */
+        margin: 0 !important; /* 내부 마진 제거하여 영역 줄임 */
+        line-height: 1 !important;
+        flex-grow: 1 !important; /* 텍스트가 중앙에 오도록 공간 확보 */
+        text-align: center !important;
+    }
+    .close-NoEntry {
+        font-size: 20px !important; /* 닫기 버튼 크기 유지 또는 조정 */
     }
 
-    /* T-섹션 (시/감상 페이지 컨테이너) */
+    /* T-섹션 (시/감상 페이지 컨테이너) - 중앙 정렬 추가 */
     .t-section {
         margin-top: 60px !important; 
         padding-top: 20px !important;
