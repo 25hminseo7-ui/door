@@ -384,23 +384,23 @@ html, body {
         max-width: none !important;
     }
     /* 개별 문 크기 (원래 px 값 대신 vh를 사용하여 시각적으로 복원) */
-    .door1 { width: 10vh !important; } 
-    .door2 { width: 10vh !important; }
-    .door3 { width: 10vh !important; }
-    .door4 { width: 10vh !important; }
-    .door5 { width: 10vh !important; }
-    .door6 { width: 10vh !important; }
-    .door7 { width: 10vh !important; }
-    .door8 { width: 10vh !important; }
-    .door9 { width: 10vh !important; }
-    .door10 { width: 10vh !important; }
-    .door11 { width: 10vh !important; }
-    .door12 { width: 10vh !important; }
-    .door13 { width: 10vh !important; }
-    .door14 { width: 10vh !important; }
-    .door15 { width: 10vh !important; }
-    .door16 { width: 10vh !important; }
-    .door17 { width: 10vh !important; }
+    .door1 { width: 3vh !important; } 
+    .door2 { width: 3vh !important; } 
+    .door3 { width: 3vh !important; }
+    .door4 { width: 3vh !important; }
+    .door5 { width: 3vh !important; }
+    .door6 { width: 3vh !important; }
+    .door7 { width: 3vh !important; }
+    .door8 { width: 3vh !important; }
+    .door9 { width: 3vh !important; }
+    .door10 { width: 3vh !important; }
+    .door11 { width: 3vh !important; }
+    .door12 { width: 3vh !important; }
+    .door13 { width: 3vh !important; }
+    .door14 { width: 3vh !important; }
+    .door15 { width: 3vh !important; }
+    .door16 { width: 3vh !important; }
+    .door17 { width: 3vh !important; }
     
 
     /* [메모 페이지 공간 사진 크기 조정] */
@@ -409,7 +409,7 @@ html, body {
         flex-direction: column !important;
     }
     .space-photo {
-        width: 50vh !important; /* 회전된 화면 너비의 90% */
+        width: 20vh !important; /* 회전된 화면 너비의 90% */
         height: auto !important;
     }
     .space-img {
