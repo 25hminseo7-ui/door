@@ -331,28 +331,33 @@ header a {
 @media (max-width: 600px) and (orientation: portrait) {
     
     /* ======================================================= */
-    /* 1. Body 전체 회전, 이동 및 축소 (좌측 쏠림 및 확대 문제 해결) */
+    /* 1. Body 전체 회전 및 축소 (좌측 쏠림 및 확대 문제 해결) */
     /* ======================================================= */
+    
+    :root {
+        /* 화면 축소 비율 계산: (원래 너비) / (원래 높이) */
+        --scale-factor: calc(100vw / 100vh); 
+    }
+
     body {
-        /* position:fixed로 전체 뷰포트에 고정시키고 스크롤을 방지합니다. */
+        /* [핵심 수정] 위치 설정: 화면 상단(top: 0)과 오른쪽 끝(left: 100%)에 고정 */
         position: fixed; 
+        top: 0;
+        left: 100%; 
         
-        /* 뷰포트 크기를 회전된 상태에 맞게 교체합니다. */
-        width: 100vh;  /* 가로 길이 = 원래 화면 높이 */
-        height: 100vw; /* 세로 길이 = 원래 화면 너비 */
+        /* 뷰포트 크기를 회전된 상태에 맞게 교체 (가로: 100vh, 세로: 100vw) */
+        width: 100vh;  
+        height: 100vw; 
         
         /* 회전 중심을 '좌측 상단'으로 설정 */
-        transform-origin: 0 0; 
+        transform-origin: top left; 
         
-        /* [핵심 수정]: 90도 회전 후, Y축으로 뷰포트 높이(100vh)만큼 이동하고 축소 */
-        /* 이 방식이 가장 안정적으로 좌측 쏠림 없이 화면에 꽉 차게 만듭니다. */
-        transform: rotate(90deg) translateY(-100vh);
+        /* [핵심 수정] 회전(rotate)과 축소(scale)만 적용 */
+        /* left: 100% 덕분에 90도 회전 시 콘텐츠가 화면에 딱 맞게 들어옵니다. */
+        transform: rotate(90deg) scale(var(--scale-factor)); 
 
-        /* 이전에 scale을 사용했지만, 레이아웃 왜곡의 원인이 되므로 scale 대신 
-           각 섹션의 크기를 회전된 뷰포트에 맞게 재조정하는 방식으로 변경합니다. */
-        /* overflow를 hidden으로 설정하여 스크롤바 방지 */
+        /* 스크롤바 방지 */
         overflow: hidden; 
-        overflow-y: auto; /* 만약 특정 페이지에서 스크롤이 필요하면 auto를 사용 */
     }
 
     /* ======================================================= */
@@ -361,105 +366,77 @@ header a {
     
     /* 문 이미지 컨테이너 (index.html, choice*.html) */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5 {
-        /* 높이를 100vw로 설정해야 회전된 뷰포트의 '세로' 길이(원래 모바일 너비)를 꽉 채웁니다. */
+        /* [핵심 수정]: 높이를 100vw로 설정하여 회전된 뷰포트의 높이를 꽉 채웁니다. */
         height: 100vw !important; 
         min-height: 100vw !important;
-        /* 원본의 justify-content: flex-end; 덕분에 이제 문들이 바닥에 붙게 됩니다. */
+        /* 원본 CSS에 있는 justify-content: flex-end; 가 정상 작동하게 됩니다. */
     }
 
-    /* [문 이미지 크기 조정]: vh 단위로 원본 크기 비율 복원 */
-    /* 문이 너무 작아지는 문제 해결 */
+    /* 문 이미지 크기 조정 (vh 단위로 원본 크기 비율 복원) */
     .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
-        /* 원래의 px/vw 값 대신, 회전된 화면의 높이(100vw)를 기준으로 크기 비율을 추정하여 vh로 대체합니다. */
-        width: 15vh !important; /* 모든 문을 이 비율로 통일 */
+        width: 15vh !important; 
         max-width: none !important;
     }
-    /* 개별 문 크기 (더 정확한 비율 복구를 위해 필요하다면 개별 조정) */
-    .door6 { width: 30vh !important; } /* door6은 특히 크므로 별도 지정 */
+    .door6 { width: 30vh !important; } 
     .door7 { width: 25vh !important; } 
     .door9 { width: 28vh !important; }
-    
+
     /* ======================================================= */
     /* 3. 공간 메모 페이지 레이아웃 복구 (사진-텍스트 가로 정렬) */
     /* ======================================================= */
     
     /* door14.html, door16.html 등 공간 메모 페이지의 섹션 */
     .space-layout {
-        /* 원래 가로 정렬(사진-메모)을 위해 flex-direction을 row로 명시적으로 복구 */
+        /* [핵심 복구]: 가로 정렬(row)과 뷰포트 높이 꽉 채우기 */
         flex-direction: row !important;
-        height: 100vw !important; /* 뷰포트 높이에 맞춤 */
+        height: 100vw !important; 
         align-items: center !important; 
+        /* 원본에서 상단 여백이 있다면 초기화 */
+        padding-top: 0 !important; 
     }
     
     /* 공간 사진 컨테이너 */
     .space-photo {
-        width: 45vh !important; /* 회전된 화면 너비(100vh)의 약 45% */
-        height: 100vw !important;
-        /* 사진이 세로로 길거나 가로로 길 때를 대비하여 높이 고정 및 flex-shrink 방지 */
+        width: 45vh !important; 
+        height: 100% !important; /* height: 100vw 대신 100%로 컨테이너 높이에 맞춤 */
         flex-shrink: 0 !important;
     }
     .space-img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: contain !important; /* 이미지가 잘리지 않도록 조정 */
-    }
-
-    /* 메모 텍스트 컨테이너 */
-    .space-memo {
-        width: 55vh !important; /* 회전된 화면 너비의 나머지 55% */
-        overflow-y: auto !important; /* 메모가 길 경우 스크롤 허용 */
-        padding: 30px !important;
+        object-fit: contain !important; 
     }
 
     /* ======================================================= */
-    /* 4. 오디오 페이지 및 헤더 조정 */
+    /* 4. 오디오 페이지 및 헤더 조정 (재생 바 크기 및 위치) */
     /* ======================================================= */
     
-    /* 오디오 페이지 (.door2.html, .door10.html, .door12.html 등) */
+    /* 오디오 페이지 섹션 */
     .sound-section {
-        height: 100vw !important; /* 뷰포트 높이 꽉 채우기 */
-        /* 콘텐츠(오디오 바)를 중앙에 위치시키기 위해 Flexbox 속성 재정의 */
+        height: 100vw !important; 
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        padding-top: 0 !important;
     }
     
-    /* 오디오 재생 바 (너무 짧은 문제 해결) */
+    /* 오디오 재생 바 */
     .door-audio {
-        width: 80vh !important; /* 회전된 화면 너비의 80%로 충분히 길게 확보 */
+        width: 80vh !important; 
     }
 
-    /* 헤더 조정 (fixed 위치 유지) */
+    /* 헤더 조정 (fixed 위치 유지 및 width 재설정) */
     header {
         position: fixed !important;
-        width: 100vh !important; 
+        width: 100vh !important; /* Body와 동일하게 100vh */
         padding: 20px 30px !important; 
         justify-content: space-between !important;
-        /* 헤더 아래 영역이 콘텐츠를 가리지 않도록 마진 추가 */
-        margin-bottom: 0 !important;
     }
     
     /* 5. 폰트 크기 조정 (이전 단계에서 최종 확인된 크기 재적용) */
-    /* ... (폰트 크기 코드는 이전과 동일하게 유지됩니다) ... */
-    header p, header a {
-        font-size: 16px !important;
-    }
-    .text, .memo-text, .text2 {
-        font-size: 18px !important;
-        line-height: 1.5 !important;
-    }
-    .poemtitle, .title-text {
-        font-size: 26px !important;
-        line-height: 1.3 !important;
-    }
-    .authorname, .author-name {
-        font-size: 20px !important;
-    }
-    .NoEntry-text {
-        font-size: 16px !important;
-    }
-    .copyright-text {
-        font-size: 14px !important;
-    }
+    header p, header a { font-size: 16px !important; }
+    .text, .memo-text, .text2 { font-size: 18px !important; line-height: 1.5 !important; }
+    .poemtitle, .title-text { font-size: 26px !important; line-height: 1.3 !important; }
+    .authorname, .author-name { font-size: 20px !important; }
+    .NoEntry-text { font-size: 16px !important; }
+    .copyright-text { font-size: 14px !important; }
 }
