@@ -331,45 +331,49 @@ header a {
 
 @media (max-width: 600px) and (orientation: portrait) {
     
-    /* 1. Body 및 기본 설정 */
+    /* 1. Body 및 기본 설정 (스크롤 허용 및 폰트 사이즈 조정) */
     body {
         position: static !important; 
         overflow: auto !important;
         font-size: 16px !important;
     }
     
-    /* 2. Footer (Copyright) - 상단 고정 */
+    /* 2. Footer (Copyright) - [수정: 상단 고정] */
     footer {
+        /* FIX: fixed positioning으로 상단에 고정시키고 페이지 흐름에서 제외 */
         position: fixed !important; 
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        background-color: white !important; 
+        background-color: white !important; /* 배경색을 추가하여 아래 콘텐츠를 가림 */
         padding: 20px 0 !important;
         text-align: center !important;
-        z-index: 10; 
+        z-index: 10; /* 다른 요소 위에 표시되도록 z-index 설정 */
     }
     .copyright-text {
         font-size: 12px !important; 
         margin: 0 !important;
     }
 
-    /* 3. Door Section 및 Choice Sections - 하단 완벽 부착 */
+    /* 3. Door Section (홈페이지 및 일반 페이지 섹션) - [수정: Margin Top 추가] */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5 {
+        /* FIX: 고정된 footer의 높이(약 60px)만큼 콘텐츠를 아래로 밀어냅니다. */
         margin-top: 60px !important; 
+
+        /* 높이: footer 공간을 제외하고 나머지 꽉 채워 스크롤바 방지 */
         min-height: calc(100vh - 60px) !important;
         height: auto !important; 
         
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-end !important; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end; 
         
         padding-top: 20px !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 20px !important;
     }
     
-    /* 4. 문 선택 페이지 그룹핑 컨테이너 - 가로 스크롤 & Gap 50px */
+    /* 4. 문 선택 페이지 그룹핑 컨테이너 - 가로 스크롤 구현 (유지) */
     .door1234, .door567, .door891011, .door121314, .door15161718 {
         overflow-x: auto !important;
         overflow-y: hidden !important; 
@@ -383,103 +387,54 @@ header a {
         justify-content: flex-start !important; 
         
         padding: 0 15px !important;
-        gap: 50px !important; 
+        gap: 20px !important; 
     }
     
-    /* 5. 문 이미지 크기 조정 */
-    
-    /* 모든 문 이미지 하단 마진 제거 및 축소 방지 적용 */
-    .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
-        margin-bottom: 0 !important; 
-        flex-shrink: 0; 
-    }
-
-    /* [핵심 수정 1]: 홈페이지 문 크기 (55vh -> 48vh로 축소) */
+    /* 5. 문 이미지 크기 조정 (vh를 사용해 세로 화면에 안정화) (유지) */
     .door {
-        width: 48vh !important; 
+        width: 55vh !important; 
         max-width: 90% !important; 
         height: auto !important;
+        margin-bottom: 0 !important;
     }
-    
-    /* 나머지 문 크기 (유지) */
-    .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door13, .door14, .door15, .door17, .door18 {
+    .door, .door1, .door2, .door3, .door4, .door5, .door7, .door8, .door10, .door11, .door13, .door14, .door15, .door17, .door18 {
         width: 25vh !important; 
         max-width: 25vh !important; 
+        flex-shrink: 0; 
     }
     .door6 { 
         width: 40vh !important; 
         max-width: 40vh !important; 
+        flex-shrink: 0;
     } 
     .door9, .door12, .door16 {
         width: 35vh !important; 
         max-width: 35vh !important; 
+        flex-shrink: 0;
     }
     
-    /* 6. 오디오 섹션 - 화면 중앙 정렬 */
-    .sound-section {
-        margin-top: 60px !important; 
-        height: calc(100vh - 60px) !important; 
-        
-        display: flex !important;
-        align-items: center !important; 
-        justify-content: center !important; 
-        
-        padding-bottom: 0 !important;
-    }
-    .door-audio {
-        max-width: 90% !important;
-        width: 90% !important;
-    }
-
-    /* 7. 공간 레이아웃 - [핵심 수정: 간격 20px로 축소 및 텍스트 양끝맞춤] */
-    .space-layout {
-        flex-direction: column !important;
-        height: auto !important; 
-        padding: 20px !important;
-        margin-top: 60px !important; 
-        /* [핵심 수정 2]: gap을 20px로 축소 */
-        gap: 20px !important; 
-        
-        display: flex !important; 
-        align-items: center !important; 
-        justify-content: center !important; 
-        
-        min-height: calc(100vh - 60px) !important; 
-    }
-    .space-photo { 
-        max-width: 90% !important; 
-        width: 90% !important;
-    }
-    .space-memo { 
-        width: 90% !important;
-        /* [핵심 수정 3]: 텍스트 양끝맞춤 (Justify) 적용 */
-        text-align: justify !important; 
-    }
-    
-    /* 8. 기타 요소 (폰트, T-섹션 등) */
+    /* 6. 기타 요소 (폰트, T-섹션 등) (유지) */
     header {
         position: absolute !important;
         padding: 20px !important;
     }
     header p, header a { font-size: 16px !important; }
-    
-    .t-section {
-        margin-top: 60px !important; 
-        padding-top: 20px !important;
-    }
-    .t-div {
-        width: 90% !important; 
+    .text, .text2, .space-memo { font-size: 16px !important; line-height: 1.8 !important; }
+    .poemtitle { font-size: 24px !important; margin-bottom: 30px !important; }
+    .authorname { font-size: 18px !important; }
+    .space-layout {
+        flex-direction: column !important;
+        height: auto !important; 
         padding: 20px !important;
+        margin-top: 60px !important; 
+        gap: 40px !important;
     }
-    .text, .text2 { 
-        font-size: 16px !important; 
-        line-height: 1.8 !important; 
-        width: 100% !important; 
-    }
-    .poemtitle { font-size: 24px !important; margin-bottom: 30px !important; }
+    .space-photo { max-width: 90% !important; width: 90% !important; }
+    .space-memo { width: 90% !important; }
+    .sound-section { margin-top: 60px !important; height: auto !important; padding-bottom: 60px !important; }
+    .door-audio { max-width: 90% !important; width: 90% !important; }
+}
     .authorname { font-size: 18px !important; }
 }
-    .poemtitle { font-size: 24px !important; margin-bottom: 30px !important; }
-    .authorname { font-size: 18px !important; }
-}
+
 
