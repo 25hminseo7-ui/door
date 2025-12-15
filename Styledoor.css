@@ -330,15 +330,11 @@ header a {
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
-    
-    /* 1. Body 및 기본 설정 */
     body {
         position: static; 
         overflow: auto;
         font-size: 16px;
     }
-    
-    /* 2. Footer (Copyright) - 상단 고정 */
     footer {
         position: fixed; 
         top: 0;
@@ -353,24 +349,18 @@ header a {
         font-size: 12px; 
         margin: 0;
     }
-
-    /* 3. Door Section (홈페이지 및 일반 페이지 섹션) */
     .door-section, .choice1, .choice2, .choice3, .choice4, .choice5 {
         margin-top: 60px; 
         min-height: calc(100vh - 60px);
         height: auto; 
-        
         display: flex;
         flex-direction: column;
-        align-items: center; /* 수평 중앙 정렬 */
-        justify-content: flex-end; /* 아래쪽 정렬 */
-        
+        align-items: center;
+        justify-content: flex-end;
         padding-top: 20px;
         padding-bottom: 20px;
         text-align: center;
     }
-    
-    /* 4. 문 선택 페이지 그룹핑 컨테이너 - 가로 스크롤 구현 */
     .door1234, .door567, .door891011, .door121314, .door15161718 {
         overflow-x: auto;
         overflow-y: hidden; 
@@ -383,12 +373,8 @@ header a {
         padding: 0 15px;
         gap: 50px; 
     }
-    
-    /* 5. 문 이미지 크기 조정 */
-    
-    /* [핵심 수정 1]: 홈페이지 메인 문 이미지 크기 축소 (48vh -> 40vh) */
     .door {
-        width: 35vh; /* 크기 축소 */
+        width: 33vh;
         max-width: 90%; 
         height: auto;
         margin-bottom: 0;
@@ -396,8 +382,6 @@ header a {
         margin-right: auto;
         display: block; 
     }
-    
-    /* 나머지 문 이미지들 */
     .door, .door1, .door2, .door3, .door4, .door5, .door6, .door7, .door8, .door9, .door10, .door11, .door12, .door13, .door14, .door15, .door16, .door17, .door18 {
         margin-bottom: 0; 
         flex-shrink: 0;
@@ -429,8 +413,8 @@ header a {
     }
 
     .door5 {
-    	width: 25vh;
-    	max-width: 25vh;
+    	width: 24vh;
+    	max-width: 24vh;
     	margin-bottom: 0; 
         flex-shrink: 0; 
     } 
@@ -441,21 +425,21 @@ header a {
         flex-shrink: 0; 
     } 
     .door7 {
-    	width: 35vh;
-    	max-width: 35vh;
+    	width: 40vh;
+    	max-width: 40vh;
     	margin-bottom: 0; 
         flex-shrink: 0; 
     }
 
     .door8 {
-    	width: 19vh;
-    	max-width: 19vh;
+    	width: 21vh;
+    	max-width: 21vh;
     	margin-bottom: 0; 
         flex-shrink: 0; 
     } 
     .door9 {
-    	width: 45vh;
-    	max-width: 45vh;
+    	width: 47vh;
+    	max-width: 47vh;
     	margin-bottom: 0; 
         flex-shrink: 0; 
     } 
@@ -466,8 +450,8 @@ header a {
         flex-shrink: 0; 
     } 
     .door11 {
-    	width: 25vh;
-    	max-width: 25vh;
+    	width: 24vh;
+    	max-width: 24vh;
     	margin-bottom: 0; 
         flex-shrink: 0; 
     }
@@ -498,8 +482,8 @@ header a {
         flex-shrink: 0; 
     } 
     .door16 {
-    	width: 48vh;
-    	max-width: 48vh;
+    	width: 50vh;
+    	max-width: 50vh;
     	margin-bottom: 0; 
         flex-shrink: 0; 
     } 
@@ -516,7 +500,6 @@ header a {
         flex-shrink: 0; 
     } 
 
-    /* 6. 오디오 섹션 - 중앙 정렬 */
     .sound-section { 
         margin-top: 60px; 
         height: calc(100vh - 60px); 
@@ -525,9 +508,9 @@ header a {
         justify-content: center; 
         padding-bottom: 0; 
     }
-    .door-audio { max-width: 90%; width: 90%; }
-    
-    /* 7. 공간 레이아웃 (사진/메모) */
+    .door-audio {
+    	max-width: 90%; width: 90%;
+    }
     .space-layout {
         flex-direction: column;
         height: auto; 
@@ -535,23 +518,22 @@ header a {
         margin-top: 60px; 
         gap: 40px;
     }
-    .space-photo { max-width: 90%; width: 90%; }
-    /* [핵심 수정 2]: 공간 메모 텍스트 양끝맞춤 */
+    .space-photo {
+    	max-width: 90%; width: 90%;
+    }
     .space-memo { 
         width: 90%; 
-        text-align: center; 
+        text-align: center;
+        font-size: 16px; 
+        line-height: 1.8; 
     }
-    
-    /* 8. 기타 요소 (폰트, T-섹션, 경고바) */
     header {
         position: absolute;
         padding: 20px;
     }
-    
-    /* '돌아가기' 폰트 크기 */
-    header p, header a { font-size: 16px; }
-    
-    /* 텍스트 폰트 통일 */
+    header p, header a {
+    	font-size: 16px;
+    }
     .text, .text2, { 
         font-size: 16px; 
         line-height: 1.8; 
@@ -561,9 +543,9 @@ header a {
         font-size: 16px; 
         margin-bottom: 30px; 
     }
-    .authorname { margin-top: -20px; }
-    
-    /* 경고 메시지 폰트 크기 조정 및 #NoEntry-bar 영역 유지 */
+    .authorname {
+    	margin-top: -20px;
+    }
     #NoEntry-bar {
         height: 40px; 
         top: 60px; 
@@ -579,9 +561,9 @@ header a {
         flex-grow: 1; 
         text-align: center;
     }
-    .close-NoEntry { font-size: 20px; }
-
-    /* T-섹션 (시/감상 페이지 컨테이너) - 중앙 정렬 */
+    .close-NoEntry {
+    	font-size: 20px;
+    }
     .t-section {
         margin-top: 60px; 
         padding-top: 20px;
@@ -597,3 +579,7 @@ header a {
         padding: 20px;
     }
 }
+        padding: 20px;
+    }
+}
+
