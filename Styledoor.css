@@ -327,5 +327,19 @@ header a {
 }
 .door17B {
 	background-color: #B2A89D;
-
 }
+@media (max-width: 600px) and (orientation: portrait) {
+    body {
+        transform-origin: 0 0;
+        transform: rotate(90deg) translateY(-100vh);
+        width: 100vh;
+        height: 100vw;
+        overflow-x: hidden;
+    }
+    /*
+    .text {
+        font-size: 1.5vw !important;
+    }
+    */
+}
+
